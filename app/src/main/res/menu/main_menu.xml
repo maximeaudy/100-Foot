@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_france"
+        android:enabled="true"
+        android:icon="@drawable/ic_france"
+        android:title="@string/app_name"
+        android:visible="true" />
+    <item
+        android:id="@+id/action_espagne"
+        android:title="Espagne"
+        android:enabled="true"
+        android:icon="@drawable/ic_spain"
+        />
+    <item
+        android:id="@+id/action_united_kingdom"
+        android:enabled="true"
+        android:icon="@drawable/ic_united_kingdom"
+        android:title="Angleterre"
+        android:visible="true" />
+
+</menu>
