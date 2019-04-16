@@ -53,6 +53,8 @@ public class FootDataReader {
                 unMatch.setLink(columns[2]);
 
                 listesMatchs.add(unMatch);
+
+                Log.v("TAG", columns[0] + columns[1] + columns[2]);
             }
         }catch(IOException e){
             Log.v("ERROR","Erreur lors de la tentative de lecture du fichier CSV." + e.getLocalizedMessage());

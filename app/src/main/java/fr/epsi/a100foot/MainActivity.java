@@ -21,12 +21,12 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         ListView laListView = findViewById(R.id.myListView);
 
-        //MatchDataReader lesMatchDataReader = new MatchDataReader(this);
-        //lesMatchDataReader.mettreAJourListe(true);
+        FootDataReader lesMatchDataReader = new FootDataReader(this);
+        lesMatchDataReader.mettreAJourListe(true);
 
-        //ArrayList<Match> match = lesMatchDataReader.getListeMatch();
+        ArrayList<Match> match = lesMatchDataReader.getListesMatchs();
         this.listMatch = new ArrayList<>();
-        //listMatch.addAll(match);
+        listMatch.addAll(match);
 
         ListArrayAdapter matchArrayAdapter = new ListArrayAdapter(this, R.layout.text_list_item, this.listMatch);
 
