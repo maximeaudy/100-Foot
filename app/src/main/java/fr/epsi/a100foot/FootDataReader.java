@@ -16,9 +16,11 @@ public class FootDataReader {
 
     protected ArrayList<Match> listesMatchs;
     protected Context context;
+    protected int country;
 
-    public FootDataReader(Context context) {
+    public FootDataReader(Context context, int country) {
         this.context = context;
+        this.country = country;
     }
 
     public void mettreAJourListe(boolean premierLigneContientIntitules){
@@ -27,7 +29,7 @@ public class FootDataReader {
         try {
             listesMatchs = new ArrayList<>();
 
-            InputStream is = context.getResources().openRawResource(R.raw.france);
+            InputStream is = context.getResources().openRawResource(this.country);
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader br = new BufferedReader(isr);
             String line;
@@ -53,8 +55,6 @@ public class FootDataReader {
                 unMatch.setLink(columns[2]);
 
                 listesMatchs.add(unMatch);
-
-                Log.v("TAG", columns[0] + columns[1] + columns[2]);
             }
         }catch(IOException e){
             Log.v("ERROR","Erreur lors de la tentative de lecture du fichier CSV." + e.getLocalizedMessage());

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         ListView laListView = findViewById(R.id.myListView);
 
-        FootDataReader lesMatchDataReader = new FootDataReader(this);
+        FootDataReader lesMatchDataReader = new FootDataReader(this, R.raw.france);
         lesMatchDataReader.mettreAJourListe(true);
 
         ArrayList<Match> match = lesMatchDataReader.getListesMatchs();
