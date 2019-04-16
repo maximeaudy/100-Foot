@@ -8,6 +8,9 @@ public class Match {
     protected Date datePublication  = null;
     protected String link = "Non défini";
 
+    public Match() {
+
+    }
 
     public Match(String titre, Date datePublication, String link) {
         this.titre = titre;
