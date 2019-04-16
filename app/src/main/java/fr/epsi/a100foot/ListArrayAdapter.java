@@ -38,8 +38,6 @@ public class ListArrayAdapter extends ArrayAdapter {
         textViewTitle.setText(leMatch.getTitre());
         textViewDate.setText(new SimpleDateFormat("dd-MM-yyyy' à ' H:mm").format(leMatch.getDatePublication()));
 
-
-
-        return super.getView(position, convertView, parent);
+        return matchListItem;
     }
 }
