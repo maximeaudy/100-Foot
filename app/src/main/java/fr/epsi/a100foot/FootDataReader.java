@@ -22,7 +22,7 @@ public class FootDataReader {
     }
 
     public void mettreAJourListe(boolean premierLigneContientIntitules){
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         try {
             listesMatchs = new ArrayList<>();
