@@ -1,16 +1,15 @@
 package fr.epsi.a100foot;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.ListView;
-
-import java.util.ArrayList;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Environment;
-import android.util.Log;
+import android.widget.Button;
 
 import java.io.BufferedInputStream;
 import java.io.FileOutputStream;
@@ -22,38 +21,21 @@ import java.net.URLConnection;
 
 public class MainActivity extends AppCompatActivity {
 
-    protected ArrayList<Match> listMatch;
     private ProgressDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.index_main);
 
         new DownloadFileFromURL().execute("http://epsi.fr.fo/france.csv");
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        ListView laListView = findViewById(R.id.myListView);
-
-        FootDataReader lesMatchDataReader = new FootDataReader(this, "france.csv");
-        lesMatchDataReader.mettreAJourListe(true);
-
-        ArrayList<Match> match = lesMatchDataReader.getListesMatchs();
-        this.listMatch = new ArrayList<>();
-        listMatch.addAll(match);
-
-        ListArrayAdapter matchArrayAdapter = new ListArrayAdapter(this, R.layout.text_list_item, this.listMatch);
-
-        laListView.setAdapter(matchArrayAdapter);
-    }
-
-    public void changeCountry(View v) {
+    public void accessResults(View v) {
         super.onStart();
 
-        Log.v("TAG", "TEST");
+        Intent intentMain = new Intent(MainActivity.this, ResultsActivity.class);
+        MainActivity.this.startActivity(intentMain);
     }
 
     class DownloadFileFromURL extends AsyncTask<String, String, String> {
@@ -64,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            System.out.println("Starting download");
+            System.out.println("Téléchargement en cours...");
 
             pDialog = new ProgressDialog(MainActivity.this);
             pDialog.setMessage("Loading... Please wait...");
