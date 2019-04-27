@@ -1,6 +1,5 @@
 package fr.epsi.a100foot;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +7,6 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-//OK
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Environment;
@@ -55,8 +53,7 @@ public class MainActivity extends AppCompatActivity {
     public void changeCountry(View v) {
         super.onStart();
 
-        Intent launchSecondActivityIntent = new Intent(this, SecondActivity.class);
-        startActivity(launchSecondActivityIntent);
+        Log.v("TAG", "TEST");
     }
 
     class DownloadFileFromURL extends AsyncTask<String, String, String> {

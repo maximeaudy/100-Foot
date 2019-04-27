@@ -13,7 +13,6 @@
         android:id="@+id/action_espagne"
         android:enabled="true"
         android:icon="@drawable/ic_spain"
-        android:onClick="changeCountry"
         android:title="Espagne"
         app:itemIconTint="@android:color/black" />
 </menu>

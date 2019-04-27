@@ -11,6 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:background="#121212"
+        android:onClick="changeCountry"
         android:visibility="visible"
         app:elevation="0dp"
         app:itemTextColor="@color/colorAccent"
