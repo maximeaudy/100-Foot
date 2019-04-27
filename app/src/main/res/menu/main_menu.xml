@@ -7,19 +7,13 @@
         android:id="@+id/action_france"
         android:enabled="true"
         android:icon="@drawable/ic_france"
-        android:title="@string/app_name"
+        android:title="France"
         android:visible="true" />
     <item
         android:id="@+id/action_espagne"
-        android:title="Espagne"
         android:enabled="true"
         android:icon="@drawable/ic_spain"
-        />
-    <item
-        android:id="@+id/action_united_kingdom"
-        android:enabled="true"
-        android:icon="@drawable/ic_united_kingdom"
-        android:title="Angleterre"
-        android:visible="true" />
-
+        android:onClick="changeCountry"
+        android:title="Espagne"
+        app:itemIconTint="@android:color/black" />
 </menu>

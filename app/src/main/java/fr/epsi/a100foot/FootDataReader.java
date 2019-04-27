@@ -3,12 +3,16 @@ package fr.epsi.a100foot;
 import android.content.Context;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.ParseException;
+
+import android.os.Environment;
 import android.util.Log;
 import java.io.IOException;
 
@@ -16,9 +20,9 @@ public class FootDataReader {
 
     protected ArrayList<Match> listesMatchs;
     protected Context context;
-    protected int country;
+    protected String country;
 
-    public FootDataReader(Context context, int country) {
+    public FootDataReader(Context context, String country) {
         this.context = context;
         this.country = country;
     }
@@ -28,8 +32,8 @@ public class FootDataReader {
 
         try {
             listesMatchs = new ArrayList<>();
-
-            InputStream is = context.getResources().openRawResource(this.country);
+            String root = Environment.getExternalStorageDirectory().toString();
+            InputStream is = new FileInputStream(root+"/"+this.country);
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader br = new BufferedReader(isr);
             String line;
@@ -50,9 +54,6 @@ public class FootDataReader {
                 String dateFermetureAsString = columns[1];
                 Date datePublication = simpleDateFormat.parse(dateFermetureAsString);
                 unMatch.setDatePublication(datePublication);
-
-                //On récupère le lien
-                unMatch.setLink(columns[2]);
 
                 listesMatchs.add(unMatch);
             }

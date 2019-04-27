@@ -6,7 +6,6 @@ public class Match {
 
     protected String titre = "Non défini";
     protected Date datePublication  = null;
-    protected String link = "Non défini";
 
     public Match() {
 
@@ -15,7 +14,6 @@ public class Match {
     public Match(String titre, Date datePublication, String link) {
         this.titre = titre;
         this.datePublication = datePublication;
-        this.link = link;
     }
 
     public String getTitre() {
@@ -26,10 +24,6 @@ public class Match {
         return datePublication;
     }
 
-    public String getLink() {
-        return link;
-    }
-
     public void setTitre(String titre) {
         this.titre = titre;
     }
@@ -38,7 +32,4 @@ public class Match {
         this.datePublication = datePublication;
     }
 
-    public void setLink(String link) {
-        this.link = link;
-    }
 }
